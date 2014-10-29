@@ -11,7 +11,7 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
     assert_equal 200, response.status
     assert_equal Mime::JSON, response.content_type
 
-    assert Product.count, JSON.parse(response.body).size
+    assert Product.count, json(response.body).size
   end
 
   test 'lists most expensive products' do
@@ -20,7 +20,7 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
     assert_equal 200, response.status
     assert_equal Mime::JSON, response.content_type
 
-    assert_equal 1, JSON.parse(response.body).size
+    assert_equal 1, json(response.body).size
   end
 
 end
