@@ -1,0 +1,21 @@
+{
+  "name": "Gemstore_Rails",
+  "version": "0.0.1",
+  "homepage": "http://shapingup.heroku.com",
+  "authors": [
+    "Phil Wilt<phillip.wilt@gmail.com>"
+  ],
+  "description": "Component Management Demo",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.0.0",
+    "angular": "~1.2.26"
+  }
+}
