@@ -1,0 +1,2 @@
+class GemstoreController < ApplicationController
+end
