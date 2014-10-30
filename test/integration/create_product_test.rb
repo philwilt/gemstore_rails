@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class CreateProductTest < ActionDispatch::IntegrationTest
-  test 'creates a new product' do
+  test 'creates a new product with valid data' do
     post '/products', { product: {
       name: 'Ruby',
       description: 'The best gem',
@@ -16,5 +16,16 @@ class CreateProductTest < ActionDispatch::IntegrationTest
     assert_equal 'Ruby', product[:name]
     assert_equal 'The best gem', product[:description]
     assert_equal 1000, product[:price].to_i
+  end
+
+  test 'does not create a new product with invalid data' do
+    post '/products', { product: {
+      name: nil,
+      description: 'The best gem',
+      price: 1000
+    } }.to_json,
+    { 'Accept' => 'application/json', 'Content-Type' => 'application/json' }
+
+    assert_equal 422, response.status
   end
 end

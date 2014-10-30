@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
     if product.save
       render json: product, status: 201, location: product
     else
-
+      render json: product.errors, status: 422
     end
   end
 
