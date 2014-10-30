@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   root 'gemstore#show'
 
   namespace :apiv1 do
-    resources :products, only: [:index, :create, :show, :destroy]
+    resources :products, only: [:index, :create, :show, :destroy, :update]
+    resources :categories, only: [:index, :show]
   end
-  resources :categories, only: [:index, :show]
+
 end

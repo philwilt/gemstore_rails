@@ -1,6 +1,7 @@
 gemStoreApp.controller('StoreController', ['$http', function($http){
   var store = this;
   store.products = [];
+  store.categories
 
   $http.get('templates/products/store-products.json').success(function(data) {
     store.products = data;

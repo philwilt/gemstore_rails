@@ -8,7 +8,7 @@ class ListingProductsInCategoryTest < ActionDispatch::IntegrationTest
   end
 
   test 'lists books under a category' do
-    get "/categories/#{@category.id}"
+    get "/apiv1/categories/#{@category.id}"
 
     assert_equal 200, response.status
     assert_equal Mime::JSON, response.content_type
