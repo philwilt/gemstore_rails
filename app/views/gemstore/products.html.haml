@@ -1,7 +1,20 @@
-%div{data: {:'ng-app' => 'ProductsApp'}}
+%div{data: {ng_app: 'ProductsApp'}}
   %h1 Products
-  %div{data: {:'ng-controller' => 'ProductsCtrl', :'ng-init' => 'index()'}}
-  %div{data: {:'ng-repeat' => 'product in products'}}
-    %p
-      {{product}}
+  %div{data: {ng_controller: 'ProductsCtrl', ng_init: 'index()'}}
+    %input{type: 'text', placeholder: 'Name', data: {ng_model: 'newProduct.name'}}
+    %br
+    %input{type: 'text', placeholder: 'Description', data: {ng_model: 'newProduct.description'}}
+    %br
+    %input{type: 'text', placeholder: '1000', data: {ng_model: 'newProduct.price'}}
+    %br
+    %button{data: {ng_click: 'create(newProduct)'}}
+      Create New Product
+    %div
+      {{products.size}}
+    %ul{data: {ng_repeat: 'product in products'}}
+      %li
+        %p Name: {{product.name}}
+        %p Description: {{product.description}}
+        %p Price: ${{product.price}}
+
 
