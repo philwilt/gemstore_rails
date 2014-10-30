@@ -22,5 +22,4 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
 
     assert_equal 1, json(response.body).size
   end
-
 end
