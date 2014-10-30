@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'gemstore#show'
 
   resources :products, only: [:index, :create, :show, :destroy]
+  resources :categories, only: [:index, :show]
 end

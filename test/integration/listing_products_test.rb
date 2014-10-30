@@ -2,8 +2,9 @@ require 'test_helper'
 
 class ListingProductsTest < ActionDispatch::IntegrationTest
   setup do
-    Product.create!(name: 'Ruby', description: 'Best gem', price: 1000)
-    Product.create!(name: 'Sapphire', description: 'Not as good as ruby', price: 500)
+    @category = Category.create!(name: 'Gems')
+    @category.products.create!(name: 'Ruby', description: 'Best gem', price: 1000)
+    @category.products.create!(name: 'Sapphire', description: 'Not as good as ruby', price: 500)
   end
 
   test 'listing products' do
@@ -11,7 +12,10 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
     assert_equal 200, response.status
     assert_equal Mime::JSON, response.content_type
 
-    assert Product.count, json(response.body).size
+    products = json(response.body)
+    assert_equal Product.count, products.size
+    product = Product.find(products.first[:id])
+    assert_equal @category.id, product.category.id
   end
 
   test 'lists most expensive products' do
