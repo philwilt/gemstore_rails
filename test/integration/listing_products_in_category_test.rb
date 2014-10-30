@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ListingBooksInCategoryTest < ActionDispatch::IntegrationTest
+class ListingProductsInCategoryTest < ActionDispatch::IntegrationTest
   setup do
     @category = Category.create!(name: 'Gems')
     @category.products.create!(name: 'Ruby', description: 'Best gem', price: 1000)

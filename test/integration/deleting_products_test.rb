@@ -6,7 +6,7 @@ class DeletingProductsTest < ActionDispatch::IntegrationTest
   end
 
   test 'deletes a product' do
-    delete "/products/#{@product.id}"
+    delete "/apiv1/products/#{@product.id}"
 
     assert_equal 204, response.status
   end
