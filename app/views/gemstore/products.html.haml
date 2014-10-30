@@ -5,16 +5,16 @@
     %br
     %input{type: 'text', placeholder: 'Description', data: {ng_model: 'newProduct.description'}}
     %br
-    %input{type: 'text', placeholder: '1000', data: {ng_model: 'newProduct.price'}}
+    %input{type: 'text', placeholder: '1000', data: { ng_model: 'newProduct.price' }}
     %br
     %button{data: {ng_click: 'create(newProduct)'}}
       Create New Product
     %div
-      {{products.size}}
+      {{ products.size }}
     %ul{data: {ng_repeat: 'product in products'}}
       %li
-        %p Name: {{product.name}}
-        %p Description: {{product.description}}
-        %p Price: ${{product.price}}
+        %p Name: {{ product.name }}
+        %p Description: {{ product.description }}
+        %p Price: {{ product.price | currency }}
 
 
