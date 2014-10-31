@@ -8,7 +8,7 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
   end
 
   test 'listing products' do
-    get '/products'
+    get '/apiv1/products'
     assert_equal 200, response.status
     assert_equal Mime::JSON, response.content_type
 
@@ -19,7 +19,7 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
   end
 
   test 'lists most expensive products' do
-    get '/products?price=1000'
+    get '/apiv1/products?price=1000'
 
     assert_equal 200, response.status
     assert_equal Mime::JSON, response.content_type

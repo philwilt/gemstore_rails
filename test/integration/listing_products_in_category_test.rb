@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ListingBooksInCategoryTest < ActionDispatch::IntegrationTest
+class ListingProductsInCategoryTest < ActionDispatch::IntegrationTest
   setup do
     @category = Category.create!(name: 'Gems')
     @category.products.create!(name: 'Ruby', description: 'Best gem', price: 1000)
@@ -8,7 +8,7 @@ class ListingBooksInCategoryTest < ActionDispatch::IntegrationTest
   end
 
   test 'lists books under a category' do
-    get "/categories/#{@category.id}"
+    get "/apiv1/categories/#{@category.id}"
 
     assert_equal 200, response.status
     assert_equal Mime::JSON, response.content_type
